@@ -7,30 +7,27 @@ import { Entity,
     ManyToOne,
     ManyToMany,
     DeleteDateColumn, } from 'typeorm';
-import { Printing } from '../models/printing.entity';
-import { Type } from 'class-transformer';
+import { User } from '../models/user.entity';
 
 @Entity()
-export class User {
+export class Printing {
     @PrimaryGeneratedColumn()
     id: number;
 
     @Column()
-    phone: string;
+    title: string;
 
     @Column()
-    mail: string;
+    link: string;
 
     @Column()
-    adress: string;
+    status: string;
+
+    @ManyToOne((type) => User, (c) => c.users)
+    user?: User;
 
     @Column()
     verificationCode: string;
 
-    @OneToMany((type) => Printing, (u) => u.user)
-    @Type((t) => User)
-    users: Printing[];
 
-    @Column({ default: false })
-    isActive: boolean;
 }
