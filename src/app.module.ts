@@ -7,6 +7,7 @@ import { UserModule } from './user/user.module';
 import { User } from './models/user.entity';
 import { Printing } from './models/printing.entity';
 import { PrintingModule } from './printing/printing.module';
+import { MediaModule } from './media/media.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { PrintingModule } from './printing/printing.module';
     }),
     UserModule,
     PrintingModule,
+    MediaModule,
   ],
 
   controllers: [AppController],

@@ -7,12 +7,11 @@ import { Entity,
     ManyToOne,
     ManyToMany,
     DeleteDateColumn, } from 'typeorm';
-import { User } from '../models/user.entity';
-import { Media } from '../models/media.entity';
-import {Type} from "class-transformer";
+import { Printing } from '../models/printing.entity';
+import { Type } from 'class-transformer';
 
 @Entity()
-export class Printing {
+export class Media {
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -25,12 +24,8 @@ export class Printing {
     @Column()
     status: string;
 
-    @ManyToOne((type) => User, (c) => c.users)
-    user?: User;
-
-    @OneToMany((type) => Media, (u) => u.printing)
-    @Type((t) => Media)
-    medias: Media[];
+    @ManyToOne((type) => Printing, (c) => c.medias)
+    printing?: Printing;
 
     @Column()
     verificationCode: string;
