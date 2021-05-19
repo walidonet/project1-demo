@@ -8,6 +8,7 @@ import { User } from './models/user.entity';
 import { Printing } from './models/printing.entity';
 import { PrintingModule } from './printing/printing.module';
 import { MediaModule } from './media/media.module';
+import { Media } from './models/media.entity';
 
 @Module({
   imports: [
@@ -18,7 +19,7 @@ import { MediaModule } from './media/media.module';
       username: 'root',
       password: '',
       database: 'projectdemodb',
-      entities: [User,Printing],
+      entities: [User,Printing,Media],
       synchronize: true,
     }),
     UserModule,
